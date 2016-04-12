@@ -90,4 +90,12 @@
     }
 }
 
+- (void)imageCropControllerDidCancel:(GKImageCropViewController *)imageCropController {
+    if ([self.delegate respondsToSelector:@selector(imagePickerDidCancel:)]) {
+        [self.delegate imagePickerDidCancel:self];
+    } else {
+        [self _hideController];
+    }
+}
+
 @end
